@@ -7,8 +7,8 @@ interface LayoutProps {
   currentTrack?: string; // Allow passing a specific track if needed
 }
 
-// Fixed: Corrected property access from 'background' to 'intro' as 'background' does not exist on AUDIO_TRACKS
-export const Layout: React.FC<LayoutProps> = ({ children, currentTrack = AUDIO_TRACKS.intro }) => {
+// Fixed: Corrected property access from 'intro' to 'intro_final' as 'intro' does not exist on AUDIO_TRACKS
+export const Layout: React.FC<LayoutProps> = ({ children, currentTrack = AUDIO_TRACKS.intro_final }) => {
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 

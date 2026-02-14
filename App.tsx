@@ -14,18 +14,20 @@ const App: React.FC = () => {
   const currentTrack = useMemo(() => {
     switch (stage) {
       case AppStage.START:
-        return AUDIO_TRACKS.intro;
+      case AppStage.FINAL:
+        return AUDIO_TRACKS.intro_final;
       case AppStage.GAME_1:
       case AppStage.GAME_2:
       case AppStage.GAME_3:
         return AUDIO_TRACKS.gameplay;
       case AppStage.GALLERY_1:
+        return AUDIO_TRACKS.gallery_1;
       case AppStage.GALLERY_2:
+        return AUDIO_TRACKS.gallery_2;
       case AppStage.GALLERY_3:
-      case AppStage.FINAL:
-        return AUDIO_TRACKS.gallery;
+        return AUDIO_TRACKS.gallery_3;
       default:
-        return AUDIO_TRACKS.intro;
+        return AUDIO_TRACKS.intro_final;
     }
   }, [stage]);
 

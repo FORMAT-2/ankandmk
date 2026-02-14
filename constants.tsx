@@ -58,11 +58,14 @@ export const GALLERY_IMAGES = {
 
 /**
  * AUDIO TRACKS
+ * Total 5 tracks as requested.
  */
 export const AUDIO_TRACKS = {
-  intro: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',      
-  gameplay: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',   
-  gallery: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'     
+  intro_final: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Start & End
+  gameplay: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',    // All Games
+  gallery_1: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',   // Gallery 1
+  gallery_2: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',   // Gallery 2
+  gallery_3: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3'    // Gallery 3
 };
 
 /**

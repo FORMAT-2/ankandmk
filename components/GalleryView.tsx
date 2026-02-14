@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ICONS } from '../constants';
 
 interface GalleryViewProps {
@@ -10,6 +10,17 @@ interface GalleryViewProps {
 export const GalleryView: React.FC<GalleryViewProps> = ({ message, images, onNext }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
 
+  // Auto-slide logic: 5 seconds interval
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const slideInterval = setInterval(() => {
+      setCurrentIdx(prev => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(slideInterval);
+  }, [images.length]);
+
   return (
     <div className="bg-white/90 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-rose-100 text-center animate-in fade-in zoom-in duration-700">
       <div className="mb-6 relative group overflow-hidden rounded-2xl bg-rose-50/50">
@@ -20,6 +31,19 @@ export const GalleryView: React.FC<GalleryViewProps> = ({ message, images, onNex
             className="max-w-full max-h-full object-contain shadow-inner transition-all duration-500"
           />
         </div>
+        
+        {/* Navigation Dots for Auto-slide awareness */}
+        {images.length > 1 && (
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+            {images.map((_, idx) => (
+              <div 
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all ${idx === currentIdx ? 'bg-rose-500 w-4' : 'bg-rose-300'}`}
+              />
+            ))}
+          </div>
+        )}
+
         {images.length > 1 && (
             <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                 <button 
